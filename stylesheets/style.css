@@ -1,0 +1,13 @@
+body {
+  width:700px;
+  margin:auto;
+  margin-top: 150px;
+  }
+.digits {
+  height: 150px;
+}
+.hide {
+  display: none;
+}
+#canvas {
+}
