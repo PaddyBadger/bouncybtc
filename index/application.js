@@ -2,6 +2,266 @@ $(document).ready(function(){
    function canvas() {
     window.requestAnimationFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.msRequestAnimationFrame||window.oRequestAnimationFrame||function(f){window.setTimeout(f,40/60);
   };};}
+
+var canvas1;
+var canvas2;
+var canvas3;
+var canvas4;
+var canvas5;
+var ctx1;
+var ctx2;
+var ctx3;
+var ctx4;
+var ctx5;
+var btc1 = new Image();
+var btc2 = new Image();
+var btc3 = new Image();
+var btc4 = new Image();
+var btc5 = new Image();
+
+function init() {
+canvas1 = document.getElementById("canvas1");
+ctx1 = canvas1.getContext("2d");
+canvas2 = document.getElementById("canvas2");
+ctx2 = canvas2.getContext("2d");
+canvas3 = document.getElementById("canvas3");
+ctx3 = canvas3.getContext("2d");
+canvas4 = document.getElementById("canvas4");
+ctx4 = canvas4.getContext("2d");
+canvas5 = document.getElementById("canvas5");
+ctx5 = canvas5.getContext("2d");
+drawAll();
+}
+
+function drawAll() {
+setTimeout(draw1,0);
+setTimeout(draw2,500);
+setTimeout(draw3,1000);
+setTimeout(draw4,1500);
+setTimeout(draw5,2000);
+}
+
+function draw1() {
+        btc1.src = '../images/6.png'; 
+        var particle_count = 50; 
+        var particles = [];
+        var particle;
+         
+        function Particle() {
+         
+            var W =canvas1.width 
+            var H =canvas1.height 
+            this.radius = 50;
+            this.x = 720;
+            this.y = 600;
+            this.vx = Math.random() * (-30 - -5) + -5;
+            this.vy = Math.random() * (-60 - -35) + -18;
+            this.draw = function() {
+            ctx1.drawImage(btc1,this.x,this.y); 
+            };
+        };
+
+        function renderFrame() {
+            requestAnimationFrame(renderFrame);
+            var W =canvas1.width = window.innerWidth;
+            var H =canvas1.height = window.innerHeight;
+            ctx1.clearRect(0, 0, W, H);
+            particles.forEach(function(particle) {
+                particle.vy += 1;
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                if (particle.y > 600) {
+                  particle.vy -= 13;
+                }
+                particle.draw();
+            });
+        };   
+        for (var i = 0; i < particle_count; i++) {
+        particle = new Particle();
+        particles.push(particle);
+        }
+        renderFrame();            
+};
+
+function draw2() {
+        btc2.src = '../images/9.png'; 
+        var particle_count = 50; 
+        var particles = [];
+        var particle;
+         
+        function Particle() {
+         
+            var W =canvas2.width 
+            var H =canvas2.height 
+            this.radius = 50;
+            this.x = 860;
+            this.y = 600;
+
+            if (this.x > W/2 ){
+                this.vx = Math.random() * (-15 - -5) + -5;
+            }else{
+                this.vx = Math.random() * (15 - 5) + 5;
+            }
+            this.vy = Math.random() * (-60 - -35) + -18;
+            this.draw = function() {
+            ctx2.drawImage(btc2,this.x,this.y);
+            };
+        };
+
+        function renderFrame() {
+            requestAnimationFrame(renderFrame);
+            var W =canvas2.width = window.innerWidth;
+            var H =canvas2.height = window.innerHeight;
+            ctx2.clearRect(0, 0, W, H);
+            particles.forEach(function(particle) {
+                particle.vy += 1;
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                if (particle.y > 1000) {
+                  particle.vy -= 13;
+                }
+                particle.draw();
+            });
+        };   
+        for (var i = 0; i < particle_count; i++) {
+        particle = new Particle();
+        particles.push(particle);
+        }
+        renderFrame();            
+};
+
+function draw3() {
+        btc3.src = "../images/3.png"; 
+        var particle_count = 50; 
+        var particles = [];
+        var particle;
+         
+        function Particle() {
+         
+            var W =canvas3.width 
+            var H =canvas3.height 
+            this.radius = 50;
+            this.x = 1000;
+            this.y = 600;
+
+            if (this.x > W/2 ){
+                this.vx = Math.random() * (-15 - -5) + -5;
+            }else{
+                this.vx = Math.random() * (15 - 5) + 5;
+            }
+            this.vy = Math.random() * (-60 - -35) + -18;
+            this.draw = function() {
+            ctx3.drawImage(btc3,this.x,this.y);
+            };
+        };
+
+        function renderFrame() {
+            requestAnimationFrame(renderFrame);
+            var W =canvas3.width = window.innerWidth;
+            var H =canvas3.height = window.innerHeight;
+            ctx3.clearRect(0, 0, W, H);
+            particles.forEach(function(particle) {
+                particle.vy += 1;
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                if (particle.y > 800) {
+                  particle.vy -= 13;
+                }
+                particle.draw();
+            });
+        };   
+        for (var i = 0; i < particle_count; i++) {
+        particle = new Particle();
+        console.log(i);
+        particles.push(particle);
+        }
+        renderFrame();            
+};
+
+function draw4() {
+        btc4.src = '../images/2.png'; 
+        var particle_count = 50; 
+        var particles = [];
+        var particle;
+         
+        function Particle() {
+         
+            var W =canvas4.width 
+            var H =canvas4.height 
+            this.radius = 50;
+            this.x = 1100;
+            this.y = 600;
+            this.vx = Math.random() * (-30 - -5) + -5;
+            this.vy = Math.random() * (-60 - -35) + -18;
+            this.draw = function() {
+            ctx4.drawImage(btc4,this.x,this.y); 
+            };
+        };
+
+        function renderFrame() {
+            requestAnimationFrame(renderFrame);
+            var W =canvas4.width = window.innerWidth;
+            var H =canvas4.height = window.innerHeight;
+            ctx4.clearRect(0, 0, W, H);
+            particles.forEach(function(particle) {
+                particle.vy += 1;
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                if (particle.y > 600) {
+                  particle.vy -= 13;
+                }
+                particle.draw();
+            });
+        };   
+        for (var i = 0; i < particle_count; i++) {
+        particle = new Particle();
+        particles.push(particle);
+        }
+        renderFrame();            
+};
+
+function draw5() {
+        btc5.src = '../images/5.png'; 
+        var particle_count = 50; 
+        var particles = [];
+        var particle;
+         
+        function Particle() {
+         
+            var W =canvas5.width 
+            var H =canvas5.height 
+            this.radius = 50;
+            this.x = 1200;
+            this.y = 600;
+            this.vx = Math.random() * (-30 - -5) + -5;
+            this.vy = Math.random() * (-60 - -35) + -18;
+            this.draw = function() {
+            ctx5.drawImage(btc5,this.x,this.y); 
+            };
+        };
+
+        function renderFrame() {
+            requestAnimationFrame(renderFrame);
+            var W =canvas5.width = window.innerWidth;
+            var H =canvas5.height = window.innerHeight;
+            ctx5.clearRect(0, 0, W, H);
+            particles.forEach(function(particle) {
+                particle.vy += 1;
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                if (particle.y > 600) {
+                  particle.vy -= 13;
+                }
+                particle.draw();
+            });
+        };   
+        for (var i = 0; i < particle_count; i++) {
+        particle = new Particle();
+        particles.push(particle);
+        }
+        renderFrame();            
+};
+init();
   
   $.getJSON("https://api.bitcoinaverage.com/ticker/USD", function(json) {
           
@@ -9,7 +269,7 @@ $(document).ready(function(){
            var l = String(n);
            var s = String.prototype.split.call(l, "");
 
-              var c=document.querySelector("canvas");
+              var c=document.getElementById("canvas");
               var ctx=c.getContext("2d");
 
               function Value1() {
@@ -115,7 +375,7 @@ $(document).ready(function(){
                   default:
                     value2=document.getElementById("zero");
                 }
-                ctx.drawImage(value2,130,0);
+                ctx.drawImage(value2,140,0);
               }
 
               function Value3() {
@@ -167,12 +427,12 @@ $(document).ready(function(){
                     value3=document.getElementById("zero");
                 }
 
-                ctx.drawImage(value3,260,0);
+                ctx.drawImage(value3,280,0);
               }
 
               function Decimal() {
                 var decimal=document.getElementById("decimal");
-                ctx.drawImage(decimal,390,120);
+                ctx.drawImage(decimal,420,120);
               }
 
               function Value4() {
@@ -224,7 +484,7 @@ $(document).ready(function(){
                     value4=document.getElementById("zero");
                 }
 
-                ctx.drawImage(value4,420,0);
+                ctx.drawImage(value4,460,0);
               }
 
               function Value5() {
@@ -276,15 +536,15 @@ $(document).ready(function(){
                     value5=document.getElementById("zero");
                 }
 
-                ctx.drawImage(value5,550,0);
+                ctx.drawImage(value5,600,0);
               }
 
-                Value1();
-                Value2();
-                Value3();
+                setTimeout(Value1,0);
+                setTimeout(Value2,500);
+                setTimeout(Value3,1000);
                 Decimal();
-                Value4();
-                Value5();
+                setTimeout(Value4,1500);
+                setTimeout(Value5,2000);
                 
   });
 });

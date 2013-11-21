@@ -1,7 +1,8 @@
 body {
   width:700px;
   margin:auto;
-  margin-top: 150px;
+  margin-top: 300px;
+  font-family: "Helvetica";
   }
 .digits {
   height: 150px;
@@ -10,4 +11,46 @@ body {
   display: none;
 }
 #canvas {
+  z-index: 1;
+  position:absolute;
+  
+}
+#canvas1 {
+  z-index: 2;
+  position:absolute;
+  left:0px;
+  top:0px;
+}
+
+#canvas2 {
+  z-index: 3;
+  position:absolute;
+  left:0px;
+  top:0px;
+}
+
+#canvas3 {
+  z-index: 4;
+  position:absolute;
+  left:0px;
+  top:0px;
+}
+#canvas4 {
+  z-index: 5;
+  position:absolute;
+  left:0px;
+  top:0px;
+}
+
+#canvas5 {
+  z-index: 6;
+  position:absolute;
+  left:0px;
+  top:0px;
+}
+footer {
+  position: absolute;
+  bottom: 2px;
+  width: 700px;
+  text-align: center;
 }
