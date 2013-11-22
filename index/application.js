@@ -172,7 +172,6 @@ function draw3() {
         }   
         for (var i = 0; i < particle_count; i++) {
         particle = new Particle();
-        console.log(i);
         particles.push(particle);
         }
         renderFrame();            
@@ -262,288 +261,355 @@ function draw5() {
         renderFrame();            
 }
 init();
-  
-  $.getJSON("https://api.bitcoinaverage.com/ticker/USD", function(json) {
+
+$(document).ready(function currency() {
+  $('#canvasusd, #canvasgbp, #canvaseur, #canvascny').addClass('noshow');
+  $('#canvasusd').removeClass('noshow');
+  $('.gbp').click(function() {
+    $(this).addClass('current');
+    $('.usd, .eur, .cny').removeClass('current');
+    $('#canvasusd, #canvasgbp, #canvaseur, #canvascny').addClass('noshow');
+    $('#canvasgbp').removeClass('noshow');
+  });
+  $('.eur').click(function() {
+    $(this).addClass('current');
+    $('.usd, .gbp, .cny').removeClass('current');
+    $('#canvasusd, #canvasgbp, #canvaseur, #canvascny').addClass('noshow');
+    $('#canvaseur').removeClass('noshow');
+  });
+  $('.cny').click(function() {
+    $(this).addClass('current');
+    $('.usd, .gbp, .eur').removeClass('current');
+    $('#canvasusd, #canvasgbp, #canvaseur, #canvascny').addClass('noshow');
+    $('#canvascny').removeClass('noshow');
+  });
+  $('.usd').click(function() {
+    $(this).addClass('current');
+    $('.cny, .gbp, .eur').removeClass('current');
+    $('#canvasusd, #canvasgbp, #canvaseur, #canvascny').addClass('noshow');
+    $('#canvasusd').removeClass('noshow');
+  });
+});
+
+$.getJSON("https://api.bitcoinaverage.com/ticker/USD", function(json) {
           
            var n = (json['last']);
            var l = String(n);
            var s = String.prototype.split.call(l, "");
 
-              var c=document.getElementById("canvas");
+              var c=document.getElementById("canvasusd");
               var ctx=c.getContext("2d");
 
-              function Value1() {
-                
-                var one = (s[0]);
-                var value1;
+              function Value(num, a, b) {
+                var one = num;
+                var value;
 
                 switch (one) {
                   case "0":
-                   value1=document.getElementById("zero");
+                   value=document.getElementById("zero");
                   break;
-
                   case "1":
-                   value1=document.getElementById("one");
+                   value=document.getElementById("one");
                   break;
-
                   case "2":
-                   value1=document.getElementById("two");
+                   value=document.getElementById("two");
                   break;
-
-                   case "3":
-                   value1=document.getElementById("three");
-                  break;
-
-                   case "4":
-                   value1=document.getElementById("four");
-                  break;
-
-                  case "5":
-                    value1=document.getElementById("five");
-                  break;
-
-                   case "6":
-                   value1=document.getElementById("six");
-                  break;
-
-                   case "7":
-                   value1=document.getElementById("seven");
-                  break;
-
-                   case "8":
-                   value1=document.getElementById("eight");
-                  break;
-
-                   case "9":
-                   value1=document.getElementById("nine");
-                  break;
-
-                  default:
-                    value1=document.getElementById("zero");
-                }
-
-                ctx.drawImage(value1,0,0);
-              }
-
-              function Value2() {
-                var two = (s[1]);
-                var value2;
-
-                switch (two) {
-                  case "0":
-                   value2=document.getElementById("zero");
-                  break;
-
-                  case "1":
-                   value2=document.getElementById("one");
-                  break;
-
-                  case "2":
-                   value2=document.getElementById("two");
-                  break;
-
-                   case "3":
-                   value2=document.getElementById("three");
-                  break;
-
-                   case "4":
-                   value2=document.getElementById("four");
-                  break;
-
-
-                  case "5":
-                    value2=document.getElementById("five");
-                  break;
-
-                   case "6":
-                   value2=document.getElementById("six");
-                  break;
-
-                   case "7":
-                   value2=document.getElementById("seven");
-                  break;
-
-                   case "8":
-                   value2=document.getElementById("eight");
-                  break;
-
-                   case "9":
-                   value2=document.getElementById("nine");
-                  break;
-
-                  default:
-                    value2=document.getElementById("zero");
-                }
-                ctx.drawImage(value2,140,0);
-              }
-
-              function Value3() {
-                var three = (s[2]);
-                var value3;
-
-                switch (three) {
-                  case "0":
-                   value3=document.getElementById("zero");
-                  break;
-
-                  case "1":
-                   value3=document.getElementById("one");
-                  break;
-
-                  case "2":
-                   value3=document.getElementById("two");
-                  break;
-
                   case "3":
-                   value3=document.getElementById("three");
+                   value=document.getElementById("three");
                   break;
-
                   case "4":
-                   value3=document.getElementById("four");
+                   value=document.getElementById("four");
                   break;
-
                   case "5":
-                    value3=document.getElementById("five");
+                    value=document.getElementById("five");
                   break;
-
                   case "6":
-                   value3=document.getElementById("six");
+                   value=document.getElementById("six");
                   break;
-
                   case "7":
-                   value3=document.getElementById("seven");
+                   value=document.getElementById("seven");
                   break;
-
                   case "8":
-                   value3=document.getElementById("eight");
+                   value=document.getElementById("eight");
                   break;
-
                   case "9":
-                   value3=document.getElementById("nine");
+                   value=document.getElementById("nine");
                   break;
-
                   default:
-                    value3=document.getElementById("zero");
+                    value=document.getElementById("zero");
                 }
-
-                ctx.drawImage(value3,280,0);
+                ctx.drawImage(value,a,b);
               }
 
               function Decimal() {
                 var decimal=document.getElementById("decimal");
                 ctx.drawImage(decimal,420,120);
               }
-
+              function Value1() {
+                Value(s[0],0,0);
+              };
+              function Value2() {
+                Value(s[1],140,0);
+              };
+              function Value3() {
+                Value(s[2],280,0);
+              };
               function Value4() {
-                var four = (s[3]);
-                var value4;
-
-                switch (four) {
-                  case "0":
-                   value4=document.getElementById("zero");
-                  break;
-
-                  case "1":
-                   value4=document.getElementById("one");
-                  break;
-
-                  case "2":
-                   value4=document.getElementById("two");
-                  break;
-
-                  case "3":
-                   value4=document.getElementById("three");
-                  break;
-
-                  case "4":
-                   value4=document.getElementById("four");
-                  break;
-
-                  case "5":
-                    value4=document.getElementById("five");
-                  break;
-
-                  case "6":
-                   value4=document.getElementById("six");
-                  break;
-
-                  case "7":
-                   value4=document.getElementById("seven");
-                  break;
-
-                  case "8":
-                   value4=document.getElementById("eight");
-                  break;
-
-                  case "9":
-                   value4=document.getElementById("nine");
-                  break;
-
-                  default:
-                    value4=document.getElementById("zero");
-                }
-
-                ctx.drawImage(value4,460,0);
-              }
-
+                Value(s[3],460,0);
+              };
               function Value5() {
-                var five = (s[4]);
-                var value5;
-
-                switch (five) {
-                  case "0":
-                   value5=document.getElementById("zero");
-                  break;
-
-                  case "1":
-                   value5=document.getElementById("one");
-                  break;
-
-                  case "2":
-                   value5=document.getElementById("two");
-                  break;
-
-                  case "3":
-                   value5=document.getElementById("three");
-                  break;
-
-                  case "4":
-                   value5=document.getElementById("four");
-                  break;
-
-                  case "5":
-                    value5=document.getElementById("five");
-                  break;
-
-                  case "6":
-                   value5=document.getElementById("six");
-                  break;
-
-                  case "7":
-                   value5=document.getElementById("seven");
-                  break;
-
-                  case "8":
-                   value5=document.getElementById("eight");
-                  break;
-
-                  case "9":
-                   value5=document.getElementById("nine");
-                  break;
-
-                  default:
-                    value5=document.getElementById("zero");
-                }
-
-                ctx.drawImage(value5,600,0);
-              }
+                Value(s[4],600,0);
+              };
 
                 setTimeout(Value1,500);
                 setTimeout(Value2,1000);
                 setTimeout(Value3,1500);
-                setTimeout(Decimal,500);
+                setTimeout(Decimal,1750);
                 setTimeout(Value4,2000);
                 setTimeout(Value5,2500);
+                
+  });
+
+$.getJSON("https://api.bitcoinaverage.com/ticker/GBP", function(json) {
+          
+           var n = (json['last']);
+           var l = String(n);
+           var s = String.prototype.split.call(l, "");
+
+              var c=document.getElementById("canvasgbp");
+              var ctx=c.getContext("2d");
+
+              function Value(num, a, b) {
+                var one = num;
+                var value;
+
+                switch (one) {
+                  case "0":
+                   value=document.getElementById("zero");
+                  break;
+                  case "1":
+                   value=document.getElementById("one");
+                  break;
+                  case "2":
+                   value=document.getElementById("two");
+                  break;
+                  case "3":
+                   value=document.getElementById("three");
+                  break;
+                  case "4":
+                   value=document.getElementById("four");
+                  break;
+                  case "5":
+                    value=document.getElementById("five");
+                  break;
+                  case "6":
+                   value=document.getElementById("six");
+                  break;
+                  case "7":
+                   value=document.getElementById("seven");
+                  break;
+                  case "8":
+                   value=document.getElementById("eight");
+                  break;
+                  case "9":
+                   value=document.getElementById("nine");
+                  break;
+                  default:
+                    value=document.getElementById("zero");
+                }
+                ctx.drawImage(value,a,b);
+              }
+
+              function Decimal() {
+                var decimal=document.getElementById("decimal");
+                ctx.drawImage(decimal,420,120);
+              }
+              function Value1() {
+                Value(s[0],0,0);
+              };
+              function Value2() {
+                Value(s[1],140,0);
+              };
+              function Value3() {
+                Value(s[2],280,0);
+              };
+              function Value4() {
+                Value(s[3],460,0);
+              };
+              function Value5() {
+                Value(s[4],600,0);
+              };
+
+                setTimeout(Value1,500);
+                setTimeout(Value2,1000);
+                setTimeout(Value3,1500);
+                setTimeout(Decimal,1750);
+                setTimeout(Value4,2000);
+                setTimeout(Value5,2500);
+                
+  });
+
+$.getJSON("https://api.bitcoinaverage.com/ticker/EUR", function(json) {
+          
+           var n = (json['last']);
+           var l = String(n);
+           var s = String.prototype.split.call(l, "");
+
+              var c=document.getElementById("canvaseur");
+              var ctx=c.getContext("2d");
+
+              function Value(num, a, b) {
+                var one = num;
+                var value;
+
+                switch (one) {
+                  case "0":
+                   value=document.getElementById("zero");
+                  break;
+                  case "1":
+                   value=document.getElementById("one");
+                  break;
+                  case "2":
+                   value=document.getElementById("two");
+                  break;
+                  case "3":
+                   value=document.getElementById("three");
+                  break;
+                  case "4":
+                   value=document.getElementById("four");
+                  break;
+                  case "5":
+                    value=document.getElementById("five");
+                  break;
+                  case "6":
+                   value=document.getElementById("six");
+                  break;
+                  case "7":
+                   value=document.getElementById("seven");
+                  break;
+                  case "8":
+                   value=document.getElementById("eight");
+                  break;
+                  case "9":
+                   value=document.getElementById("nine");
+                  break;
+                  default:
+                    value=document.getElementById("zero");
+                }
+                ctx.drawImage(value,a,b);
+              }
+
+              function Decimal() {
+                var decimal=document.getElementById("decimal");
+                ctx.drawImage(decimal,420,120);
+              }
+              function Value1() {
+                Value(s[0],0,0);
+              };
+              function Value2() {
+                Value(s[1],140,0);
+              };
+              function Value3() {
+                Value(s[2],280,0);
+              };
+              function Value4() {
+                Value(s[3],460,0);
+              };
+              function Value5() {
+                Value(s[4],600,0);
+              };
+
+                setTimeout(Value1,500);
+                setTimeout(Value2,1000);
+                setTimeout(Value3,1500);
+                setTimeout(Decimal,1750);
+                setTimeout(Value4,2000);
+                setTimeout(Value5,2500);
+                
+  });
+
+$.getJSON("https://api.bitcoinaverage.com/ticker/CNY", function(json) {
+          
+           var n = (json['last']);
+           var l = String(n);
+           var s = String.prototype.split.call(l, "");
+           console.log(s);
+
+              var c=document.getElementById("canvascny");
+              var ctx=c.getContext("2d");
+
+              function Value(num, a, b) {
+                var one = num;
+                var value;
+
+                switch (one) {
+                  case "0":
+                   value=document.getElementById("zero");
+                  break;
+                  case "1":
+                   value=document.getElementById("one");
+                  break;
+                  case "2":
+                   value=document.getElementById("two");
+                  break;
+                  case "3":
+                   value=document.getElementById("three");
+                  break;
+                  case "4":
+                   value=document.getElementById("four");
+                  break;
+                  case "5":
+                    value=document.getElementById("five");
+                  break;
+                  case "6":
+                   value=document.getElementById("six");
+                  break;
+                  case "7":
+                   value=document.getElementById("seven");
+                  break;
+                  case "8":
+                   value=document.getElementById("eight");
+                  break;
+                  case "9":
+                   value=document.getElementById("nine");
+                  break;
+                  default:
+                    value=document.getElementById("zero");
+                }
+                ctx.drawImage(value,a,b);
+              }
+
+              function Decimal() {
+                var decimal=document.getElementById("decimal");
+                ctx.drawImage(decimal,560,120);
+              }
+              function Value1() {
+                Value(s[0],0,0);
+              };
+              function Value2() {
+                Value(s[1],140,0);
+              };
+              function Value3() {
+                Value(s[2],280,0);
+              };
+              function Value4() {
+                Value(s[3],420,0);
+              };
+              function Value5() {
+                Value(s[5],600,0);
+              };
+              function Value6() {
+                Value(s[6],740,0);
+              };
+
+                setTimeout(Value1,500);
+                setTimeout(Value2,1000);
+                setTimeout(Value3,1500);
+                setTimeout(Value4,2000);
+                setTimeout(Decimal,1750);
+                setTimeout(Value5,2500);
+                setTimeout(Value6,3000);
+
                 
   });
 });

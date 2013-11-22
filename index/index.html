@@ -13,10 +13,17 @@ function timedRefresh(timeoutPeriod) {
 }
 //   -->
 </script>
-
   <title>Bouncy Bitcoin</title>    
 </head>
-<body onload="JavaScript:timedRefresh(60000);">
+<header>
+  <ul>
+    <li><a class="usd current" href="#">USD</a></li>
+    <li><a class="gbp" href="#">GBP</a></li>
+    <li><a class="eur" href="#">EUR</a><li>
+    <li><a class="cny" href="#">CNY</a></li>
+  </ul>
+</header>
+<body onload="JavaScript:timedRefresh(30000);">
   <span class="digits hide">
     <img id="zero" src="../images/zero.png">
     <img id="one" src="../images/one.png">
@@ -31,7 +38,10 @@ function timedRefresh(timeoutPeriod) {
     <img id="decimal" src="../images/point.png">   
 
   </span>
-  <canvas id="canvas" width="800"></canvas>
+  <canvas id="canvasusd" class="" width="800"></canvas>
+  <canvas id="canvasgbp" class="noshow" width="800"></canvas>
+  <canvas id="canvaseur" class="noshow" width="800"></canvas>
+  <canvas id="canvascny" class="noshow" width="980"></canvas>
   <canvas id="canvas1"></canvas>
   <canvas id="canvas2"></canvas>
   <canvas id="canvas3"></canvas>
