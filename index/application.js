@@ -34,11 +34,11 @@ drawAll();
 }
 
 function drawAll() {
-setTimeout(draw1,0);
-setTimeout(draw2,500);
-setTimeout(draw3,1000);
-setTimeout(draw4,1500);
-setTimeout(draw5,2000);
+setTimeout(draw1,500);
+setTimeout(draw2,1000);
+setTimeout(draw3,1500);
+setTimeout(draw4,2000);
+setTimeout(draw5,2500);
 }
 
 function draw1() {
@@ -59,7 +59,7 @@ function draw1() {
             this.draw = function() {
             ctx1.drawImage(btc1,this.x,this.y); 
             };
-        };
+        }
 
         function renderFrame() {
             requestAnimationFrame(renderFrame);
@@ -75,13 +75,13 @@ function draw1() {
                 }
                 particle.draw();
             });
-        };   
+        }   
         for (var i = 0; i < particle_count; i++) {
         particle = new Particle();
         particles.push(particle);
         }
         renderFrame();            
-};
+}
 
 function draw2() {
         btc2.src = '../images/9.png'; 
@@ -91,8 +91,8 @@ function draw2() {
          
         function Particle() {
          
-            var W =canvas2.width 
-            var H =canvas2.height 
+            var W =canvas2.width; 
+            var H =canvas2.height; 
             this.radius = 50;
             this.x = 860;
             this.y = 600;
@@ -106,7 +106,7 @@ function draw2() {
             this.draw = function() {
             ctx2.drawImage(btc2,this.x,this.y);
             };
-        };
+        }
 
         function renderFrame() {
             requestAnimationFrame(renderFrame);
@@ -122,13 +122,13 @@ function draw2() {
                 }
                 particle.draw();
             });
-        };   
+        }   
         for (var i = 0; i < particle_count; i++) {
         particle = new Particle();
         particles.push(particle);
         }
         renderFrame();            
-};
+}
 
 function draw3() {
         btc3.src = "../images/3.png"; 
@@ -153,7 +153,7 @@ function draw3() {
             this.draw = function() {
             ctx3.drawImage(btc3,this.x,this.y);
             };
-        };
+        }
 
         function renderFrame() {
             requestAnimationFrame(renderFrame);
@@ -169,14 +169,14 @@ function draw3() {
                 }
                 particle.draw();
             });
-        };   
+        }   
         for (var i = 0; i < particle_count; i++) {
         particle = new Particle();
         console.log(i);
         particles.push(particle);
         }
         renderFrame();            
-};
+}
 
 function draw4() {
         btc4.src = '../images/2.png'; 
@@ -196,7 +196,7 @@ function draw4() {
             this.draw = function() {
             ctx4.drawImage(btc4,this.x,this.y); 
             };
-        };
+        }
 
         function renderFrame() {
             requestAnimationFrame(renderFrame);
@@ -212,13 +212,13 @@ function draw4() {
                 }
                 particle.draw();
             });
-        };   
+        }   
         for (var i = 0; i < particle_count; i++) {
         particle = new Particle();
         particles.push(particle);
         }
         renderFrame();            
-};
+}
 
 function draw5() {
         btc5.src = '../images/5.png'; 
@@ -238,7 +238,7 @@ function draw5() {
             this.draw = function() {
             ctx5.drawImage(btc5,this.x,this.y); 
             };
-        };
+        }
 
         function renderFrame() {
             requestAnimationFrame(renderFrame);
@@ -254,13 +254,13 @@ function draw5() {
                 }
                 particle.draw();
             });
-        };   
+        }   
         for (var i = 0; i < particle_count; i++) {
         particle = new Particle();
         particles.push(particle);
         }
         renderFrame();            
-};
+}
 init();
   
   $.getJSON("https://api.bitcoinaverage.com/ticker/USD", function(json) {
@@ -297,7 +297,6 @@ init();
                    case "4":
                    value1=document.getElementById("four");
                   break;
-
 
                   case "5":
                     value1=document.getElementById("five");
@@ -539,14 +538,12 @@ init();
                 ctx.drawImage(value5,600,0);
               }
 
-                setTimeout(Value1,0);
-                setTimeout(Value2,500);
-                setTimeout(Value3,1000);
-                Decimal();
-                setTimeout(Value4,1500);
-                setTimeout(Value5,2000);
+                setTimeout(Value1,500);
+                setTimeout(Value2,1000);
+                setTimeout(Value3,1500);
+                setTimeout(Decimal,500);
+                setTimeout(Value4,2000);
+                setTimeout(Value5,2500);
                 
   });
 });
-
-                  
