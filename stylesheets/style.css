@@ -82,9 +82,16 @@ header ul li a:hover {
   left:0px;
   top:0px;
 }
+#canvas6 {
+  z-index: 7;
+  position:absolute;
+  left:0px;
+  top:0px;
+}
 footer {
   position: absolute;
   bottom: 2px;
   width: 700px;
   text-align: center;
+  z-index: 100;
 }
